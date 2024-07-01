@@ -2,6 +2,9 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import * as Animatable from "react-native-animatable";
 import * as Font from "expo-font";
+import LoadingScreen from "./.expo/components/LoadingScreen";
+
+import Home from "./.expo/components/Home";
 
 async function loadFonts() {
   await Font.loadAsync({
@@ -23,6 +26,9 @@ const FactoryButton = ({ onPress, label }) => (
 export default function App() {
   const [score, setScore] = useState(0);
   const [factories, setFactories] = useState(0);
+  const [showNormalImage, setShowNormalImage] = useState(true);
+
+  // Stato per gestire la visibilità delle immagini
 
   // Update score every second based on the number of factories
   useEffect(() => {
@@ -37,66 +43,27 @@ export default function App() {
 
   const handlePress = useCallback(() => {
     setScore((prevScore) => prevScore + 1);
+    setShowNormalImage(false); // Nascondi l'immagine normale
     // Trigger the animation on press
     if (buttonRef.current) {
-      buttonRef.current.bounceIn();
+      buttonRef.current.bounceIn().then(() => {
+        // Ripristina l'immagine allo stato iniziale dopo l'animazione
+        setShowNormalImage(true);
+      });
     }
   }, []);
-
-  const buyFactory = useCallback(() => {
-    if (score >= 300) {
-      setScore((prevScore) => prevScore - 300);
-      setFactories((prevFactories) => prevFactories + 1);
-    } else {
-      alert("Non hai abbastanza punti per acquistare una fabbrica!");
-    }
-  }, [score]);
-
-  const buyFactory2 = useCallback(() => {
-    if (score >= 1000) {
-      setScore((prevScore) => prevScore - 1000);
-      setFactories((prevFactories) => prevFactories + 5);
-    } else {
-      alert("Non hai abbastanza punti per acquistare una fabbrica!");
-    }
-  }, [score]);
 
   // Ref to access the button component
   const buttonRef = useRef(null);
 
-  return (
-    <View style={styles.container}>
-      <Text style={styles.score}>Punti: {score}</Text>
-      <Animatable.View ref={buttonRef}>
-        <TouchableOpacity style={styles.button} onPress={handlePress}>
-          <Image
-            source={require("./assets/gattonormale.jpg")}
-            style={styles.image}
-          />
-        </TouchableOpacity>
-      </Animatable.View>
-      <Text style={styles.factories}>Fabbriche: {factories}</Text>
-      <View style={styles.arancio}>
-        <Text>Numero scatolette</Text>
-        <Text>Numero croccantini</Text>
-      </View>
-      {/* questi devono essere div e non bottoni */}
-      <View style={styles.edifici}>
-        <Image
-          source={require("./assets/gattonormale.jpg")}
-          style={styles.imageEdifici}
-        />
-        <Text style={styles.lucky}>Cat Bistrot</Text>
-        <FactoryButton onPress={buyFactory} label="Compra per 300 Punti" />
-      </View>
-      <View style={styles.edifici}>
-        <FactoryButton
-          onPress={buyFactory2}
-          label="Compra 5 Fabbriche (1000 Punti)"
-        />
-      </View>
-    </View>
-  );
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+  }, []);
+  return isLoading ? <LoadingScreen /> : <Home></Home>;
 }
 
 const styles = StyleSheet.create({
@@ -143,6 +110,12 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   factories: {
+    fontFamily: "LuckiestGuy-Regular",
+    color: "#2EC4B6",
+    backgroundColor: "#CCFF66",
+    borderRadius: 5,
+    padding: 10,
+    textShadowColor: "#5D2E8C",
     fontSize: 24,
     margin: 20,
   },
@@ -151,13 +124,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#5D2E8C",
     margin: 10,
     borderRadius: 5,
-  },
-  lucky: {
-    fontFamily: "LuckiestGuy-Regular",
-    margin: 0,
-    color: "#2EC4B6",
-    textShadowColor: "#5D2E8C",
-    textShadowOffset: { width: 2, height: 2 },
-    textShadowRadius: 2,
   },
 });
