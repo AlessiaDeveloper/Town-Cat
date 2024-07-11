@@ -3,12 +3,12 @@ import { Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import EdificiPurchase from "./EdificiPurchase";
-import GattoHome from "./TagBar/GattoHome";
+import GattoHome from "../TagBar/GattoHome";
 import SettingsScreen from "./SettingsScreen";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import ApProva from "./ApProva";
-import Upgrade from "./TagBar/Upgrade";
-import CrocShop from "./TagBar/CrocShop";
+import Upgrade from "../TagBar/Upgrade";
+import CrocShop from "../TagBar/CrocShop";
 const Tab = createBottomTabNavigator();
 
 export default function App() {

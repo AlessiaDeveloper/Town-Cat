@@ -1,6 +1,5 @@
 import React from "react";
 import { ActivityIndicator, StyleSheet, View, Image, Text } from "react-native";
-import TextLucky from "../UI/TextLucky";
 
 export default function LoadingScreen() {
   return (

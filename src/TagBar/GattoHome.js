@@ -11,14 +11,14 @@ import {
 } from "react-native";
 import * as Animatable from "react-native-animatable";
 import * as Font from "expo-font";
-import TextLucky from "../../UI/TextLucky";
-import EdificiPurchase from "../EdificiPurchase";
-import ModalSettings from "../ModalSettings";
-import ModalAchievment from "../ModalAchievment";
+import TextLucky from "../Components/TextLucky";
+import EdificiPurchase from "../Components/EdificiPurchase";
+import ModalSettings from "../Components/ModalSettings";
+import ModalAchievment from "../Components/ModalAchievment";
 
 async function loadFonts() {
   await Font.loadAsync({
-    "LuckiestGuy-Regular": require("./../../../assets/fonts/LuckiestGuy-Regular.ttf"),
+    "LuckiestGuy-Regular": require("../../assets/fonts/LuckiestGuy-Regular.ttf"),
   });
 }
 
@@ -99,8 +99,8 @@ export default function GattoHome() {
                   style={styles.image}
                   source={
                     pressed
-                      ? require("./../../../assets/gattofelice.jpg")
-                      : require("./../../../assets/gattonormale.jpg")
+                      ? require("./../../assets/gattofelice.jpg")
+                      : require("./../../assets/gattonormale.jpg")
                   }
                 ></Image>
               </>
@@ -121,7 +121,7 @@ export default function GattoHome() {
       <ScrollView>
         <View style={styles.edifici}>
           <Image
-            source={require("./../../../assets/gattonormale.jpg")}
+            source={require("./../../assets/gattonormale.jpg")}
             style={styles.imageEdifici}
           />
           <TextLucky>Cat Bistrot</TextLucky>
@@ -135,7 +135,7 @@ export default function GattoHome() {
         </View>
         <View style={styles.edifici}>
           <Image
-            source={require("./../../../assets/gattonormale.jpg")}
+            source={require("./../../assets/gattonormale.jpg")}
             style={styles.imageEdifici}
           />
           <TextLucky>Lettiera</TextLucky>
@@ -149,7 +149,7 @@ export default function GattoHome() {
         </View>
         <View style={styles.edifici}>
           <Image
-            source={require("./../../../assets/gattonormale.jpg")}
+            source={require("./../../assets/gattonormale.jpg")}
             style={styles.imageEdifici}
           />
           <TextLucky>Terzo edificio </TextLucky>

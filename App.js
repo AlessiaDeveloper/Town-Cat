@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import * as Font from "expo-font";
-import LoadingScreen from "./.expo/components/LoadingScreen";
+import LoadingScreen from "./src/Components/LoadingScreen";
 import * as NavigationBar from "expo-navigation-bar";
 
-import Home from "./.expo/components/Home";
+import Home from "./src/Components/Home";
 
 async function loadFonts() {
   await Font.loadAsync({

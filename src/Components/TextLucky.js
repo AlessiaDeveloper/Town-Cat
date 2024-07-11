@@ -1,6 +1,14 @@
 import React from "react";
 import { StyleSheet, Text } from "react-native";
 
+// async function loadFonts() {
+//   await Font.loadAsync({
+//     "LuckiestGuy-Regular": require("./../../assets/fonts/LuckiestGuy-Regular.ttf"),
+//   });
+// }
+
+// loadFonts();
+
 export default function TextLucky(props) {
   return <Text style={styles.lucky}>{props.children}</Text>;
 }

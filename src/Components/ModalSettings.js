@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
-import TextLucky from "../UI/TextLucky";
+import TextLucky from "./TextLucky";
 
-export default function ModalAchievment() {
+export default function ModalSettings() {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <View>
@@ -19,42 +19,30 @@ export default function ModalAchievment() {
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <TextLucky style={styles.modalText}>List of Achievment</TextLucky>
+            {/* <TextLucky style={styles.modalText}>Opzioni di gioco</TextLucky> */}
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}
             >
-              <TextLucky style={styles.textStyle}>
-                Compra il primo cat bistrot
-              </TextLucky>
-              <TextLucky style={styles.textStyle}>8 croccantini</TextLucky>
+              <TextLucky style={styles.textStyle}>Cambia lingua</TextLucky>
             </Pressable>
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}
             >
-              <TextLucky style={styles.textStyle}>
-                Compra il primo cat bistrot
-              </TextLucky>
-              <TextLucky style={styles.textStyle}>8 croccantini</TextLucky>
+              <Text style={styles.textStyle}>Hide Modal</Text>
             </Pressable>
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}
             >
-              <TextLucky style={styles.textStyle}>
-                Compra il primo cat bistrot
-              </TextLucky>
-              <TextLucky style={styles.textStyle}>8 croccantini</TextLucky>
+              {/* <TextLucky style={styles.textStyle}>Musica</TextLucky> */}
             </Pressable>
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}
             >
-              <TextLucky style={styles.textStyle}>
-                Compra il primo cat bistrot
-              </TextLucky>
-              <TextLucky style={styles.textStyle}>8 croccantini</TextLucky>
+              <Text style={styles.textStyle}>Hide Modal</Text>
             </Pressable>
           </View>
         </View>
@@ -63,7 +51,7 @@ export default function ModalAchievment() {
         style={[styles.button, styles.buttonOpen]}
         onPress={() => setModalVisible(true)}
       >
-        <Icon name="list" size={30} color="#CCFF66" />
+        <Icon name="gear" size={30} color="#CCFF66" />
       </Pressable>
     </View>
   );
@@ -93,8 +81,8 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   button: {
-    borderRadius: 20,
-    marginTop: 10,
+    borderRadius: 10,
+    margin: 5,
     padding: 10,
   },
   buttonOpen: {},
@@ -109,7 +97,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   modalText: {
-    marginBottom: 20,
+    marginBottom: 15,
     textAlign: "center",
   },
 });
