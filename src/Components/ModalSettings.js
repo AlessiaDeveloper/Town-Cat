@@ -1,6 +1,13 @@
 import React, { useState } from "react";
-import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
+import {
+  Alert,
+  Modal,
+  StyleSheet,
+  Text,
+  Pressable,
+  View,
+  Image,
+} from "react-native";
 import TextLucky from "./TextLucky";
 
 export default function ModalSettings() {
@@ -51,7 +58,10 @@ export default function ModalSettings() {
         style={[styles.button, styles.buttonOpen]}
         onPress={() => setModalVisible(true)}
       >
-        <Icon name="gear" size={30} color="#CCFF66" />
+        <Image
+          source={require("./../../assets/opzione.png")}
+          style={styles.icona}
+        />
       </Pressable>
     </View>
   );
@@ -85,6 +95,7 @@ const styles = StyleSheet.create({
     margin: 5,
     padding: 10,
   },
+  icona: { width: 60, height: 60 },
   buttonOpen: {},
   buttonClose: {
     backgroundColor: "#CCFF66",

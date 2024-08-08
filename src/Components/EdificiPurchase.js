@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Text, TouchableOpacity, Alert } from "react-native";
+import TextLucky from "./TextLucky";
 
 export default EdificiPurchase = ({
   cost,
@@ -19,8 +20,8 @@ export default EdificiPurchase = ({
 
   return (
     <View>
-      <TouchableOpacity onPress={handlePurchase}>
-        <Text style={styles.factoryButton}>Compra per {cost} punti</Text>
+      <TouchableOpacity style={styles.factoryButton} onPress={handlePurchase}>
+        <TextLucky> {cost} click</TextLucky>
       </TouchableOpacity>
     </View>
   );
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
   factoryButton: {
     padding: 10,
     backgroundColor: "#5D2E8C",
-    color: "#CCFF66",
+    color: "yellow",
     margin: 10,
     borderRadius: 5,
   },

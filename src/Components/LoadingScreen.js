@@ -1,24 +1,43 @@
 import React from "react";
-import { ActivityIndicator, StyleSheet, View, Image, Text } from "react-native";
+import {
+  ActivityIndicator,
+  StyleSheet,
+  View,
+  Image,
+  Text,
+  ImageBackground,
+} from "react-native";
 
 export default function LoadingScreen() {
   return (
     <View style={styles.container}>
-      <Text> Town Cat </Text>
-      <Image
-        source={require("../../assets/gattonormale.jpg")}
+      <ImageBackground
+        source={require("../../assets/cattrono.png")}
         style={styles.image}
-      />
-      <ActivityIndicator />
+      >
+        <ActivityIndicator />
+      </ImageBackground>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: "center", alignItems: "center" },
+  container: {
+    flex: 1,
+  },
   image: {
-    width: 300,
-    height: 300,
+    flex: 1,
+    zIndex: 1,
     resizeMode: "contain",
+  },
+  logo: {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: [{ translateX: -30 }, { translateY: -30 }],
+    width: 60,
+    height: 60,
+    zIndex: 3,
+    elevation: 3,
   },
 });

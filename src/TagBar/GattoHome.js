@@ -15,6 +15,7 @@ import TextLucky from "../Components/TextLucky";
 import EdificiPurchase from "../Components/EdificiPurchase";
 import ModalSettings from "../Components/ModalSettings";
 import ModalAchievment from "../Components/ModalAchievment";
+import TextTitleEdifici from "../Components/TextTitleEdifici";
 
 async function loadFonts() {
   await Font.loadAsync({
@@ -79,8 +80,8 @@ export default function GattoHome() {
         }}
       >
         <ModalSettings></ModalSettings>
+
         <Animatable.View ref={buttonRef}>
-          {/* Immagine normale */}
           <Pressable
             ref={buttonRef}
             onPress={() => {
@@ -88,9 +89,10 @@ export default function GattoHome() {
             }}
             style={({ pressed }) => [
               {
-                backgroundColor: pressed ? "red" : "white",
+                backgroundColor: pressed ? "#5D2E8C" : "#5D2E8C",
+                opacity: pressed ? 0.8 : 1,
               },
-              styles.wrapperCustom,
+              styles.gattoClicker,
             ]}
           >
             {({ pressed }) => (
@@ -99,8 +101,8 @@ export default function GattoHome() {
                   style={styles.image}
                   source={
                     pressed
-                      ? require("./../../assets/gattofelice.jpg")
-                      : require("./../../assets/gattonormale.jpg")
+                      ? require("./../../assets/cat1.png")
+                      : require("./../../assets/gatto2.0.png")
                   }
                 ></Image>
               </>
@@ -109,22 +111,20 @@ export default function GattoHome() {
         </Animatable.View>
         <ModalAchievment></ModalAchievment>
       </View>
-      <View style={styles.sottoGatto}>
-        <Text style={styles.factories}>{score}</Text>
-      </View>
+
       {/* <Text style={styles.factories}> {factories}</Text> */}
       <View style={styles.arancio}>
         <TextLucky>N scatolette</TextLucky>
-        <TextLucky>N croccantini</TextLucky>
+        <TextLucky>{score}</TextLucky>
       </View>
       {/* questi devono essere div e non bottoni */}
-      <ScrollView>
+      <ScrollView style={styles.containerEdifici}>
         <View style={styles.edifici}>
           <Image
-            source={require("./../../assets/gattonormale.jpg")}
+            source={require("./../../assets/chef.png")}
             style={styles.imageEdifici}
           />
-          <TextLucky>Cat Bistrot</TextLucky>
+          <TextTitleEdifici>Bistrot</TextTitleEdifici>
           <EdificiPurchase
             cost={100}
             increment={1}
@@ -135,10 +135,10 @@ export default function GattoHome() {
         </View>
         <View style={styles.edifici}>
           <Image
-            source={require("./../../assets/gattonormale.jpg")}
+            source={require("./../../assets/gym.png")}
             style={styles.imageEdifici}
           />
-          <TextLucky>Lettiera</TextLucky>
+          <TextTitleEdifici>Red Dot Gym</TextTitleEdifici>
           <EdificiPurchase
             cost={1000}
             increment={5}
@@ -149,12 +149,138 @@ export default function GattoHome() {
         </View>
         <View style={styles.edifici}>
           <Image
-            source={require("./../../assets/gattonormale.jpg")}
+            source={require("./../../assets/office.png")}
             style={styles.imageEdifici}
           />
-          <TextLucky>Terzo edificio </TextLucky>
+          <TextTitleEdifici>Kibble's Bank</TextTitleEdifici>
           <EdificiPurchase
             cost={5000}
+            increment={10}
+            score={score}
+            setScore={setScore}
+            setFactories={setFactories}
+          />
+        </View>
+        <View style={styles.edifici}>
+          <Image
+            source={require("./../../assets/catnip.png")}
+            style={styles.imageEdifici}
+          />
+          <TextTitleEdifici>Catnip Garden</TextTitleEdifici>
+          <EdificiPurchase
+            cost={10000}
+            increment={30}
+            score={score}
+            setScore={setScore}
+            setFactories={setFactories}
+          />
+        </View>
+        <View style={styles.edifici}>
+          <Image
+            source={require("./../../assets/parkour.png")}
+            style={styles.imageEdifici}
+          />
+          <TextTitleEdifici>Parkour Park</TextTitleEdifici>
+          <EdificiPurchase
+            cost={100000}
+            increment={100}
+            score={score}
+            setScore={setScore}
+            setFactories={setFactories}
+          />
+        </View>
+        <View style={styles.edifici}>
+          <Image
+            source={require("./../../assets/pittore.png")}
+            style={styles.imageEdifici}
+          />
+          <TextTitleEdifici>Atelier</TextTitleEdifici>
+          <EdificiPurchase
+            cost={500000}
+            increment={500}
+            score={score}
+            setScore={setScore}
+            setFactories={setFactories}
+          />
+        </View>
+        <View style={styles.edifici}>
+          <Image
+            source={require("./../../assets/beach cleaner.png")}
+            style={styles.imageEdifici}
+          />
+          <TextTitleEdifici>Beach cleaner</TextTitleEdifici>
+          <EdificiPurchase
+            cost={1000000}
+            increment={10}
+            score={score}
+            setScore={setScore}
+            setFactories={setFactories}
+          />
+        </View>
+        <View style={styles.edifici}>
+          <Image
+            source={require("./../../assets/hospital.png")}
+            style={styles.imageEdifici}
+          />
+          <TextTitleEdifici>Hospital</TextTitleEdifici>
+          <EdificiPurchase
+            cost={100000}
+            increment={10}
+            score={score}
+            setScore={setScore}
+            setFactories={setFactories}
+          />
+        </View>
+        <View style={styles.edifici}>
+          <Image
+            source={require("./../../assets/sushi.png")}
+            style={styles.imageEdifici}
+          />
+          <TextTitleEdifici>Sushi restaurant</TextTitleEdifici>
+          <EdificiPurchase
+            cost={50000}
+            increment={10}
+            score={score}
+            setScore={setScore}
+            setFactories={setFactories}
+          />
+        </View>
+        <View style={styles.edifici}>
+          <Image
+            source={require("./../../assets/spa.png")}
+            style={styles.imageEdifici}
+          />
+          <TextTitleEdifici>Spa</TextTitleEdifici>
+          <EdificiPurchase
+            cost={50000}
+            increment={10}
+            score={score}
+            setScore={setScore}
+            setFactories={setFactories}
+          />
+        </View>
+        <View style={styles.edifici}>
+          <Image
+            source={require("./../../assets/toystore.png")}
+            style={styles.imageEdifici}
+          />
+          <TextTitleEdifici>Toy store</TextTitleEdifici>
+          <EdificiPurchase
+            cost={50000}
+            increment={10}
+            score={score}
+            setScore={setScore}
+            setFactories={setFactories}
+          />
+        </View>
+        <View style={styles.edifici}>
+          <Image
+            source={require("./../../assets/taxi.png")}
+            style={styles.imageEdifici}
+          />
+          <TextTitleEdifici>Taxi station</TextTitleEdifici>
+          <EdificiPurchase
+            cost={50000}
             increment={10}
             score={score}
             setScore={setScore}
@@ -173,7 +299,10 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     width: "100%",
     height: "20px",
-    backgroundColor: "#FF6666",
+    backgroundColor: "#5D2E8C",
+    borderTopWidth: 2,
+    borderTopColor: "yellow",
+    fontSize: 20,
   },
   container: {
     flex: 1,
@@ -187,30 +316,28 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 
-  sottoGatto: {},
-  button: {
-    padding: 10,
+  containerEdifici: {
+    height: "40%",
   },
   edifici: {
     flexDirection: "row",
     alignSelf: "stretch",
-    backgroundColor: "#CCFF66",
-    borderBlockEndColor: "#FF6666",
+    backgroundColor: "white",
+    borderBlockEndColor: "#5D2E8C",
     borderBottomWidth: 2,
     alignItems: "center",
     justifyContent: "space-between",
   },
   imageEdifici: {
-    width: 50,
-    height: 50,
+    width: 110,
+    height: 80,
     resizeMode: "contain",
-    margin: 10,
+    margin: 2,
   },
   image: {
-    marginTop: 10,
-    width: 250,
-    height: 250,
-    resizeMode: "contain",
+    marginTop: 5,
+    width: 200,
+    height: 300,
   },
   factories: {
     fontFamily: "LuckiestGuy-Regular",

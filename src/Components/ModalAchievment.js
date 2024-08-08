@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
+import { Alert, Modal, StyleSheet, Pressable, View, Image } from "react-native";
 import TextLucky from "./TextLucky";
 
 export default function ModalAchievment() {
@@ -62,7 +61,10 @@ export default function ModalAchievment() {
         style={[styles.button, styles.buttonOpen]}
         onPress={() => setModalVisible(true)}
       >
-        <Icon name="list" size={30} color="#CCFF66" />
+        <Image
+          source={require("./../../assets/achievment.png")}
+          style={styles.icona}
+        />
       </Pressable>
     </View>
   );
@@ -111,4 +113,5 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     textAlign: "center",
   },
+  icona: { width: 60, height: 60, top: -7 },
 });
