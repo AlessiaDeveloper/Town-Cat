@@ -3,7 +3,7 @@ import * as Font from "expo-font";
 import LoadingScreen from "./src/Components/LoadingScreen";
 import * as NavigationBar from "expo-navigation-bar";
 
-import Home from "./src/Components/Home";
+import TagBar from "./src/Components/TagBar";
 
 async function loadFonts() {
   await Font.loadAsync({
@@ -29,5 +29,5 @@ export default function App() {
       setIsLoading(false);
     }, 3000);
   }, []);
-  return isLoading ? <LoadingScreen /> : <Home></Home>;
+  return isLoading ? <LoadingScreen /> : <TagBar></TagBar>;
 }

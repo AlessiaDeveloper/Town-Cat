@@ -7,12 +7,14 @@ export default EdificiPurchase = ({
   increment,
   score,
   setScore,
+  setLev,
   setFactories,
 }) => {
   const handlePurchase = () => {
     if (score >= cost) {
       setScore((prevScore) => prevScore - cost);
       setFactories((prevFactories) => prevFactories + increment);
+      setLev((prevLev) => prevLev + lev);
     } else {
       Alert.alert("Non hai abbastanza punti");
     }

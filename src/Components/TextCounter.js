@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text } from "react-native";
 
-export default function TextLucky(props) {
+export default function TextCounter(props) {
   return <Text style={styles.lucky}>{props.children}</Text>;
 }
 const styles = StyleSheet.create({
@@ -13,6 +13,6 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 4,
 
-    fontSize: 13,
+    fontSize: 16,
   },
 });

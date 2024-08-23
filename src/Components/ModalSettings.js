@@ -9,6 +9,7 @@ import {
   Image,
 } from "react-native";
 import TextLucky from "./TextLucky";
+import TextTitleEdifici from "./TextTitleEdifici";
 
 export default function ModalSettings() {
   const [modalVisible, setModalVisible] = useState(false);
@@ -27,6 +28,7 @@ export default function ModalSettings() {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             {/* <TextLucky style={styles.modalText}>Opzioni di gioco</TextLucky> */}
+            <TextTitleEdifici>OPZIONI</TextTitleEdifici>
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}
@@ -37,7 +39,7 @@ export default function ModalSettings() {
               style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}
             >
-              <Text style={styles.textStyle}>Hide Modal</Text>
+              <TextLucky style={styles.textStyle}>MUSICA</TextLucky>
             </Pressable>
             <Pressable
               style={[styles.button, styles.buttonClose]}
@@ -49,7 +51,7 @@ export default function ModalSettings() {
               style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}
             >
-              <Text style={styles.textStyle}>Hide Modal</Text>
+              <Text style={styles.textStyle}>chiudi</Text>
             </Pressable>
           </View>
         </View>
@@ -98,8 +100,8 @@ const styles = StyleSheet.create({
   icona: { width: 60, height: 60 },
   buttonOpen: {},
   buttonClose: {
-    backgroundColor: "#CCFF66",
-    borderColor: "#FF6666",
+    backgroundColor: "#5D2E8C",
+    borderColor: "yellow",
     borderWidth: 2,
   },
   textStyle: {

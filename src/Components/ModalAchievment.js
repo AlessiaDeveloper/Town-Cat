@@ -25,7 +25,13 @@ export default function ModalAchievment() {
               <TextLucky style={styles.textStyle}>
                 Compra il primo cat bistrot
               </TextLucky>
-              <TextLucky style={styles.textStyle}>8 croccantini</TextLucky>
+              <TextLucky style={styles.textStyle}>
+                8{" "}
+                <Image
+                  style={styles.image}
+                  source={require("../../assets/scatoletta.png")}
+                />
+              </TextLucky>
             </Pressable>
             <Pressable
               style={[styles.button, styles.buttonClose]}
@@ -100,8 +106,8 @@ const styles = StyleSheet.create({
   },
   buttonOpen: {},
   buttonClose: {
-    backgroundColor: "#CCFF66",
-    borderColor: "#FF6666",
+    backgroundColor: "#5D2E8C",
+    borderColor: "yellow",
     borderWidth: 2,
   },
   textStyle: {
@@ -114,4 +120,9 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   icona: { width: 60, height: 60, top: -7 },
+  image: {
+    marginTop: 5,
+    width: 20,
+    height: 20,
+  },
 });
