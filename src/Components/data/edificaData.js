@@ -1,4 +1,4 @@
-const EdificiData = [
+export default EdificiData = [
   {
     id: "1",
     name: "Bistrot",
@@ -96,5 +96,3 @@ const EdificiData = [
     levelKey: "taxiStation",
   },
 ];
-
-export default EdificiData;
